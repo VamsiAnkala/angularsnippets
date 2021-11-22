@@ -1,0 +1,52 @@
+<h1>Comments Dialog</h1>
+<div class="comment-input-section">
+  <input
+    #comment_input
+    type="text"
+    class="comment-dialog"
+    placeholder="Post your comment here"
+    (keyup.enter)="onCommentClick(comment_input.value)"
+    [value]="commentText"
+  />
+  <button
+    class="comment-btn"
+    id="comment-btn-id"
+    (click)="onCommentClick(comment_input.value)"
+  >
+    Comment
+  </button>
+</div>
+<div class="comments-display-section">
+  <ul *ngFor="let cmnt of comments">
+    <li>
+      <h4>{{ cmnt.author }}</h4>
+      <div class="comment_">
+        <p>{{ cmnt.commentTxt }}</p>
+        <button id="reply-btn" (click)="replyBtnClicked(cmnt)">reply</button>
+        <div
+          class="replyBtnClicked"
+          *ngIf="showReplyInput && cmnt.id == replyCommentId"
+        >
+          <input
+            #commentReply
+            type="text"
+            placeholder="post your reply here"
+            (keyup.enter)="replyCommentClicked(cmnt, commentReply.value)"
+          />
+        </div>
+      </div>
+      <div class="reply_section" *ngIf="cmnt.replies.length > 0">
+        <ul *ngFor="let reply of cmnt.replies">
+          <li>
+            <h4>{{ reply.author }}</h4>
+            <p>{{ reply.commentTxt }}</p>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<tic-tac-toe></tic-tac-toe>
+
+<router-outlet></router-outlet>

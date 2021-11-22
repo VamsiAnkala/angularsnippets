@@ -1,0 +1,23 @@
+.tictactoebox {
+  text-align: center;
+  //   justify-content: center;
+  .game-board {
+    display: grid;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
+    .box {
+      border: 1px solid black;
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      //   width: 200px;
+      //   height: 200px;
+      //   width: 33%;
+      //   float: left;
+      .tileEntry {
+        font-size: 100px;
+        font-weight: bold;
+      }
+    }
+  }
+}

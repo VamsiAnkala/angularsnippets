@@ -1,0 +1,8 @@
+<h1>TicTacToe Works!</h1>
+<div class="tictactoebox">
+  <div class="game-board">
+    <div class="box" (click)="tileClicked(tile)" *ngFor="let tile of idArray">
+      <div class="tileEntry">{{ tile.entry }}</div>
+    </div>
+  </div>
+</div>
